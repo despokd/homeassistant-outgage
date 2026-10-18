@@ -1,0 +1,20 @@
+{
+  "domain": "outgage",
+  "name": "OutGage",
+  "codeowners": [
+    "@despokd"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/despokd/homeassistant-outgage",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/despokd/homeassistant-outgage/issues",
+  "loggers": [
+    "outgage"
+  ],
+  "requirements": [
+    "requests"
+  ],
+  "version": "0.0.0"
+}

@@ -1,0 +1,9 @@
+{
+  "config": {
+    "step": {
+    },
+    "error": {
+      "unknown": "[%key:common::config_flow::error::unknown%]"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+    "config": {
+        "step": {
+        
+        },
+        "error": {
+            "unknown": "An unknown error occurred. Please try again later."
+        }
+    }
+}

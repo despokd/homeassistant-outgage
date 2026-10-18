@@ -1,0 +1,10 @@
+{
+    "config": {
+        "step": {
+        
+        },
+        "error": {
+            "unknown": "Unbekannter Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+        }
+    }
+}
