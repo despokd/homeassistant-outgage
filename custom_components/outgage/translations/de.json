@@ -1,10 +1,107 @@
 {
-    "config": {
-        "step": {
-        
+  "config": {
+    "step": {
+      "user": {
+        "title": "OutGauge-Empfänger",
+        "description": "Home Assistant empfängt OutGauge-UDP-Pakete. Aktiviere OutGauge in BeamNG.drive unter Optionen → Sonstiges und trage die IP dieser Home-Assistant-Instanz und den folgenden Port ein.",
+        "data": {
+          "host": "Empfangsadresse",
+          "port": "Port",
+          "outgauge_id": "OutGauge-ID"
         },
-        "error": {
-            "unknown": "Unbekannter Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+        "data_description": {
+          "host": "Lokale Adresse. 0.0.0.0 empfängt auf allen Schnittstellen.",
+          "port": "In BeamNG.drive eingestellter UDP-Port.",
+          "outgauge_id": "Nur Pakete mit dieser ID annehmen. 0 nimmt alle Pakete an."
         }
+      }
+    },
+    "error": {
+      "cannot_bind": "Auf dieser Adresse und diesem Port kann nicht empfangen werden. Wird er bereits verwendet?",
+      "unknown": "Unbekannter Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+    },
+    "abort": {
+      "single_instance_allowed": "Bereits konfiguriert. Nur eine einzige Konfiguration möglich."
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "update_interval": "Aktualisierungsintervall",
+          "timeout": "Offline-Zeitlimit"
+        },
+        "data_description": {
+          "update_interval": "Wie oft Entitätszustände aktualisiert werden. BeamNG sendet weit mehr Pakete, als Home Assistant aufzeichnen sollte.",
+          "timeout": "Spiel nach so vielen Sekunden ohne Pakete als getrennt markieren."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "speed": {
+        "name": "Geschwindigkeit"
+      },
+      "rpm": {
+        "name": "Drehzahl"
+      },
+      "gear": {
+        "name": "Gang"
+      },
+      "turbo": {
+        "name": "Ladedruck"
+      },
+      "engine_temperature": {
+        "name": "Motortemperatur"
+      },
+      "oil_temperature": {
+        "name": "Öltemperatur"
+      },
+      "fuel": {
+        "name": "Tankfüllung"
+      },
+      "throttle": {
+        "name": "Gaspedal"
+      },
+      "brake": {
+        "name": "Bremse"
+      },
+      "clutch": {
+        "name": "Kupplung"
+      },
+      "car": {
+        "name": "Fahrzeug"
+      }
+    },
+    "binary_sensor": {
+      "shift_light": {
+        "name": "Schaltanzeige"
+      },
+      "high_beam": {
+        "name": "Fernlicht"
+      },
+      "handbrake": {
+        "name": "Handbremse"
+      },
+      "traction_control": {
+        "name": "Traktionskontrolle"
+      },
+      "signal_left": {
+        "name": "Blinker links"
+      },
+      "signal_right": {
+        "name": "Blinker rechts"
+      },
+      "oil_warning": {
+        "name": "Öldruckwarnung"
+      },
+      "battery_warning": {
+        "name": "Batteriewarnung"
+      },
+      "abs": {
+        "name": "ABS"
+      }
+    }
+  }
 }

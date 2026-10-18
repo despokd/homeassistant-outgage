@@ -8,13 +8,12 @@
   "dependencies": [],
   "documentation": "https://github.com/despokd/homeassistant-outgage",
   "integration_type": "device",
-  "iot_class": "cloud_polling",
+  "iot_class": "local_push",
   "issue_tracker": "https://github.com/despokd/homeassistant-outgage/issues",
   "loggers": [
-    "outgage"
+    "custom_components.outgage"
   ],
-  "requirements": [
-    "requests"
-  ],
-  "version": "0.0.0"
+  "requirements": [],
+  "single_config_entry": true,
+  "version": "0.1.0"
 }

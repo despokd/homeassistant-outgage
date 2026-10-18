@@ -1,9 +1,107 @@
 {
   "config": {
     "step": {
+      "user": {
+        "title": "OutGauge listener",
+        "description": "Home Assistant listens for OutGauge UDP packets. In BeamNG.drive enable OutGauge under Options → Other and set the IP to this Home Assistant instance and the port below.",
+        "data": {
+          "host": "Listen address",
+          "port": "Port",
+          "outgauge_id": "OutGauge ID"
+        },
+        "data_description": {
+          "host": "Local address to bind to. 0.0.0.0 listens on all interfaces.",
+          "port": "UDP port configured in BeamNG.drive.",
+          "outgauge_id": "Only accept packets with this ID. 0 accepts all packets."
+        }
+      }
     },
     "error": {
+      "cannot_bind": "Cannot listen on this address and port. Is it already in use?",
       "unknown": "[%key:common::config_flow::error::unknown%]"
+    },
+    "abort": {
+      "single_instance_allowed": "[%key:common::config_flow::abort::single_instance_allowed%]"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "update_interval": "Update interval",
+          "timeout": "Offline timeout"
+        },
+        "data_description": {
+          "update_interval": "How often entity states are updated. BeamNG sends far more packets than Home Assistant should record.",
+          "timeout": "Mark the game as disconnected after this many seconds without packets."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "speed": {
+        "name": "Speed"
+      },
+      "rpm": {
+        "name": "RPM"
+      },
+      "gear": {
+        "name": "Gear"
+      },
+      "turbo": {
+        "name": "Turbo pressure"
+      },
+      "engine_temperature": {
+        "name": "Engine temperature"
+      },
+      "oil_temperature": {
+        "name": "Oil temperature"
+      },
+      "fuel": {
+        "name": "Fuel"
+      },
+      "throttle": {
+        "name": "Throttle"
+      },
+      "brake": {
+        "name": "Brake"
+      },
+      "clutch": {
+        "name": "Clutch"
+      },
+      "car": {
+        "name": "Car"
+      }
+    },
+    "binary_sensor": {
+      "shift_light": {
+        "name": "Shift light"
+      },
+      "high_beam": {
+        "name": "High beam"
+      },
+      "handbrake": {
+        "name": "Handbrake"
+      },
+      "traction_control": {
+        "name": "Traction control"
+      },
+      "signal_left": {
+        "name": "Left turn signal"
+      },
+      "signal_right": {
+        "name": "Right turn signal"
+      },
+      "oil_warning": {
+        "name": "Oil warning"
+      },
+      "battery_warning": {
+        "name": "Battery warning"
+      },
+      "abs": {
+        "name": "ABS"
+      }
     }
   }
 }
