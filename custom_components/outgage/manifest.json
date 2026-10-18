@@ -14,6 +14,5 @@
     "custom_components.outgage"
   ],
   "requirements": [],
-  "single_config_entry": true,
   "version": "0.1.0"
 }

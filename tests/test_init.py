@@ -30,6 +30,7 @@ async def _setup(
 ) -> MockConfigEntry:
     entry = MockConfigEntry(
         domain=DOMAIN,
+        title="BeamNG.drive",
         data={CONF_HOST: "127.0.0.1", CONF_PORT: port, CONF_OUTGAUGE_ID: outgauge_id},
     )
     entry.add_to_hass(hass)

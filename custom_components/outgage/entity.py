@@ -23,7 +23,7 @@ class OutGageEntity(Entity):
         self._attr_unique_id = f"{entry.entry_id}_{description.key}"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, entry.entry_id)},
-            name="BeamNG.drive",
+            name=entry.title,
             manufacturer="BeamNG",
             model="OutGauge",
         )

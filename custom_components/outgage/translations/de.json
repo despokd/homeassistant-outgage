@@ -21,7 +21,7 @@
       "unknown": "Unbekannter Fehler aufgetreten. Bitte versuchen Sie es später erneut."
     },
     "abort": {
-      "single_instance_allowed": "Bereits konfiguriert. Nur eine einzige Konfiguration möglich."
+      "already_configured": "Diese Adresse und dieser Port sind bereits konfiguriert."
     }
   },
   "options": {

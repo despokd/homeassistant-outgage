@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import logging
 from typing import Any
 
@@ -46,6 +47,14 @@ USER_SCHEMA = vol.Schema(
 )
 
 
+def _entry_title(user_input: dict[str, Any]) -> str:
+    """Name entries by port (and ID) so several of them can be told apart."""
+    title = f"BeamNG.drive ({user_input[CONF_PORT]}"
+    if outgauge_id := user_input.get(CONF_OUTGAUGE_ID):
+        title += f", ID {outgauge_id}"
+    return f"{title})"
+
+
 class OutGageConfigFlow(ConfigFlow, domain=DOMAIN):
     """Handle a config flow for OutGage."""
 
@@ -57,6 +66,9 @@ class OutGageConfigFlow(ConfigFlow, domain=DOMAIN):
         """Ask for the address to listen on."""
         errors: dict[str, str] = {}
         if user_input is not None:
+            self._async_abort_entries_match(
+                {CONF_HOST: user_input[CONF_HOST], CONF_PORT: user_input[CONF_PORT]}
+            )
             try:
                 transport = await async_open_listener(
                     self.hass,
@@ -71,7 +83,12 @@ class OutGageConfigFlow(ConfigFlow, domain=DOMAIN):
                 errors["base"] = "unknown"
             else:
                 transport.close()
-                return self.async_create_entry(title="BeamNG.drive", data=user_input)
+                # The socket is released on the next loop iteration; wait for it
+                # so the entry setup right after this can bind the port.
+                await asyncio.sleep(0)
+                return self.async_create_entry(
+                    title=_entry_title(user_input), data=user_input
+                )
 
         return self.async_show_form(
             step_id="user",
